@@ -2,27 +2,20 @@
 let contextFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
 .then(response => response.json())
 .then(object => object.results)
-.then(arr => console.log(arr));
-
-/*
-let source = document.querySelector("#movies-now-playing-list").innerHTML;
+.then(placeInTemplate)
+//.then(arr => console.log(arr)); //array of objects now stored in contextFromAPI
+let source   = document.querySelector("#movies-now-playing-list").innerHTML;
 let template = Handlebars.compile(source);
-let githubPromises = contextFromAPI.map(user => {
-  return fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
-   .then(object => object.json());
-})
 
-Promise.all(githubPromises).then(placeInTemplate);
 
-function placeInTemplate (githubUsers) {
-  let html   = githubUsers.map(user => template(user)).join('');
-  //the original, when context was just an object...
-  //var html = template(context);
-  let destination = document.querySelector('.handlebars-demo');
-  destination.innerHTML = html;
+
+function placeInTemplate (movies) {
+      let html = movies.map(obj => template(obj)).join('');
+      let destination = document.querySelector('.handlebars-demo');
+      destination.innerHTML = html;
 }
 
-*/
+
 
 
 
