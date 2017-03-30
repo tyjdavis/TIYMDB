@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Hello World</title>
+    <style>
+      body {
+        width: 80%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <div class="handlebars-demo"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+
+    <script id="movies-now-playing-list" type="text/x-handlebars-template">
+      <div class="entry">
+        <h1>{{login}}</h1>
+        <div class="body">
+          <strong>Location: {{location}} </strong>
+          <img src="{{avatar_url}}"/>
+          <em>{{followers}} followers</em>
+        </div>
+      </div>
+    </script>
+
+  <script src="api_key.js"></script>
+  <script src="index.js"></script>
+
+  </body>
+
+</html>
