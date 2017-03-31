@@ -4,6 +4,7 @@ let contextFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_k
 .then(object => object.results)
 .then(placeInTemplate)
 //.then(arr => console.log(arr)); //array of objects now stored in contextFromAPI
+
 let source   = document.querySelector("#movies-now-playing-list").innerHTML;
 let template = Handlebars.compile(source);
 

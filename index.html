@@ -3,26 +3,23 @@
   <head>
     <meta charset="utf-8"/>
     <title>Movies</title>
-    <style>
-      body {
-        width: 80%;
-        margin: 0 auto;
-      }
-    </style>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1>Movies - Now Playing!</h1>
+    <h2><a href="#">New Movies</a></h2>
+    <h1>In Theaters</h1>
     <div class="handlebars-demo"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 
     <script id="movies-now-playing-list" type="text/x-handlebars-template">
       <div class="entry">
-        <h1>{{title}}</h1>
+        <h1><a href="#">{{title}}</a></h1>
         <div class="body">
-          <strong>Location: {{location}} </strong>
-          <img src="{{avatar_url}}"/>
-          <em>{{followers}} followers</em>
+          <img src="https://image.tmdb.org/t/p/w300{{poster_path}}"/>
+          <p>{{overview}}</p>
+          <p>Release Date: {{release_date}}</p>
+          <p>User Rating: {{vote_average}}</p>
         </div>
       </div>
     </script>

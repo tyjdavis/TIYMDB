@@ -1,0 +1,26 @@
+body {
+  /*width: 80%;*/
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid #E8E8E8;
+  margin-bottom: 7px;
+  padding: 10px 12px;
+  width: 80%;
+  background-color: #FFFFFF;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+img {
+  width: 20%;
+  height: 20%;
+}
+
+.entry {
+  background-color: #f6f6f5;
+  font-size: 11px;
+  color: #666666
+}
+
+a {
+  text-decoration: none;
+}
