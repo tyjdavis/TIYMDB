@@ -11,15 +11,30 @@ let promises = arr.map( (movie, index) => { //map (element that we're iterating 
   return fetch (`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${key}&language=en-US`)
   .then(response => response.json())
   .then(movie => {
-    arr[index].runtime = movie.runtime;
-    //arr[index].myNewProp = 'Hello';
+    arr[index].runtime = movie.runtime;  //the runtime property of first movie is
     return arr[index];})
+
+
+  .then( movie => {  //movie from line 16
+    return fetch (`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}`)
+    .then(response => response.json())
+    .then(movieCastData => {
+      arr[index].cast = [];
+      arr[index].cast[0] = movieCastData.cast[0].name;
+      arr[index].cast[1] = movieCastData.cast[1].name;
+      arr[index].cast[2] = movieCastData.cast[2].name;
+      arr[index].cast[3] = movieCastData.cast[3].name;
+      return arr[index];
+    });
+  });
 });
+
   Promise.all(promises).then(placeInTemplate);
 }
 
 
-//fetch (`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}&language=en-US`)
+
+
 
 
 
