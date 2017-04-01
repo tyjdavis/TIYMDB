@@ -1,10 +1,9 @@
 body {
-  /*width: 80%;*/
   margin: 0 auto;
   border-radius: 12px;
   border: 1px solid #E8E8E8;
   margin-bottom: 7px;
-  padding: 10px 12px;
+  padding: 10px 10px;
   width: 80%;
   background-color: #FFFFFF;
   font-family: Verdana, Arial, sans-serif;
@@ -24,4 +23,20 @@ img {
 
 a {
   text-decoration: none;
+}
+
+.content img {
+  float: left;
+  -moz-box-shadow:    2px 2px 2px 2px #ccc;
+  -webkit-box-shadow: 2px 2px 2px 2px #ccc;
+  box-shadow:         2px 2px 2px 2px #ccc;
+}
+
+.content {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.info {
+  
 }
