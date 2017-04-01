@@ -18,12 +18,14 @@ let promises = arr.map( (movie, index) => { //map (element that we're iterating 
   .then( movie => {  //movie from line 16
     return fetch (`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}`)
     .then(response => response.json())
-    .then(movieCastData => {
+    .then(movieCastCrewData => {
       arr[index].cast = [];
-      arr[index].cast[0] = movieCastData.cast[0].name;
-      arr[index].cast[1] = movieCastData.cast[1].name;
-      arr[index].cast[2] = movieCastData.cast[2].name;
-      arr[index].cast[3] = movieCastData.cast[3].name;
+      arr[index].crew =[];
+      arr[index].cast[0] = movieCastCrewData.cast[0].name;
+      arr[index].cast[1] = movieCastCrewData.cast[1].name;
+      arr[index].cast[2] = movieCastCrewData.cast[2].name;
+      arr[index].cast[3] = movieCastCrewData.cast[3].name;
+      arr[index].crew[0] = movieCastCrewData.crew[0].name;
       return arr[index];
     });
   });
