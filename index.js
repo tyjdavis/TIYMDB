@@ -15,7 +15,7 @@ let promises = arr.map( (movie, index) => { //map (element that we're iterating 
     return arr[index];}) //returning the first movie with runtime added to it
 
 
-  .then( movie => {  //movie from line 14
+  .then(movie => {  //movie from line 15
     return fetch (`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}`)
     .then(response => response.json())
 
