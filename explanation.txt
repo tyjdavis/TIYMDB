@@ -1,24 +1,37 @@
 
 let nowPlayingFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
+  //requesting info from the API
+
 .then(response => response.json())
-.then(object => object.results) //taking the results array from  API
+  //converts the info into json (an object)
+
+.then(object => object.results)
+  //grabs the results array from the object
+
 .then(getDetailsFromAPI)
+  //takes the array and invokes the the below function
+
+
+--------------------------------------------------------------------
 
 
 function getDetailsFromAPI (arr) {
-let promises = arr.map( (movie, index) => { //map (element that we're iterating over (objects within result), 0-19)
+let promises = arr.map( (movie, index) => {
+
   return fetch (`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${key}&language=en-US`)
+    //takes the info from the details API array and maps over each element (movie) and stores it in promises
+
   .then(response => response.json())
+    //converts the info from the fetch and converts it to json (an object)
+  
+  .then(movie => {
+    arr[index].runtime = movie.runtime;
+    return arr[index];})
 
-  .then(movieDetailsData => {
-    arr[index].runtime = movieDetailsData.runtime;  //the runtime property of first movie is
-    return arr[index];}) //returning the first movie with runtime added to it
 
-
-  .then( movie => {  //movie from line 14
+  .then( movie => {  //movie from line 15
     return fetch (`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}`)
     .then(response => response.json())
-
     .then(movieCastCrewData => {
       arr[index].cast = [];
       arr[index].crew =[];
@@ -45,3 +58,4 @@ function placeInTemplate (movies) {
       let destination = document.querySelector('.handlebars-demo');
       destination.innerHTML = html;
 }
+*/
